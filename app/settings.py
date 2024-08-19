@@ -23,7 +23,7 @@ if not os.path.exists(log_dir):
 SECRET_KEY = 'django-insecure-*)dp54ajoh*54+i68&0ql^!*l1)xn-@3-5l=_9d$66a4_-5okd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['projetodesenvolve.duckdns.org', '.projetodesenvolve.duckdns.org', 'legendariosminas.com', '89.117.32.251']
 BASE_URL = 'projetodesenvolve.duckdns.org'
