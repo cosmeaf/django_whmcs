@@ -1,5 +1,5 @@
 from django import forms
-from web.models.tenant_model import Domain
+from user_manager.models import Domain
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 import re
@@ -7,7 +7,7 @@ import re
 class DomainForm(forms.ModelForm):
     class Meta:
         model = Domain
-        fields = ['name', 'subdomain']
+        fields = ['subdomain']
 
     def __init__(self, *args, **kwargs):
         super(DomainForm, self).__init__(*args, **kwargs)
@@ -18,9 +18,9 @@ class DomainForm(forms.ModelForm):
 
     def clean_subdomain(self):
         subdomain = self.cleaned_data['subdomain']
-        # Only allow lowercase letters, numbers, and hyphens
+        # Apenas letras minúsculas, números e hífens são permitidos
         if not re.match(r'^[a-z0-9-]+$', subdomain):
-            raise forms.ValidationError("Subdomain can only contain lowercase letters, numbers, and hyphens.")
+            raise forms.ValidationError("O subdomínio só pode conter letras minúsculas, números e hífens.")
         return subdomain
 
     def clean(self):

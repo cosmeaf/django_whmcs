@@ -91,8 +91,6 @@ class MemberAwareModel(models.Model):
     class Meta:
         abstract = True
 
-from django.core.cache import cache
-from django.db import models
 
 class Domain(MemberAwareModel):
     subdomain = models.CharField(max_length=255, unique=True)
