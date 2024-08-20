@@ -479,11 +479,11 @@ msgstr ""
 
 #: templates/account/register.html:40
 msgid "First Name"
-msgstr ""
+msgstr "Nome"
 
 #: templates/account/register.html:49
 msgid "Last Name"
-msgstr ""
+msgstr "Sobrenome"
 
 #: templates/account/register.html:61
 msgid "Email"
@@ -495,37 +495,37 @@ msgstr ""
 
 #: templates/account/register.html:83
 msgid "Confirm Password"
-msgstr ""
+msgstr "Confirmar Senha"
 
 #: templates/account/register.html:100
 msgid "Already have an account?"
-msgstr ""
+msgstr "Já tem uma conta"
 
 #: templates/account/register.html:101
 msgid "Forgot your password?"
-msgstr ""
+msgstr "Esqueceu sua senha"
 
 #: templates/account/register.html:102
 msgid "Recover it here"
-msgstr ""
+msgstr "Recupere aqui"
 
 #: templates/account/request_login_code.html:12
 msgid ""
 "You will receive an email containing a special code for a password-free sign-"
 "in."
-msgstr ""
+msgstr "Você receberá um e-mail contendo um código especial para um login sem necessidade de senha."
 
 #: templates/account/request_login_code.html:24
 msgid "Request Code"
-msgstr ""
+msgstr "Código de solicitação"
 
 #: templates/account/signup.html:4
 msgid "Signup"
-msgstr ""
+msgstr "Inscrever-se"
 
 #: templates/account/signup.html:8 templates/account/signup.html:30
 msgid "Sign Up"
-msgstr ""
+msgstr "Inscrever-se"
 
 #: templates/account/signup.html:17
 #, python-format
@@ -535,7 +535,7 @@ msgstr ""
 #: templates/account/signup_closed.html:5
 #: templates/account/signup_closed.html:9
 msgid "Sign Up Closed"
-msgstr ""
+msgstr "Inscrições encerradas"
 
 #: templates/account/signup_closed.html:12
 msgid "We are sorry, but the sign up is currently closed."
