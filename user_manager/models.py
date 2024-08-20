@@ -30,8 +30,8 @@ class Member(models.Model):
     last_password_change = models.DateTimeField(null=True, blank=True)
     inactive = models.BooleanField(default=False)
     sudo_access = models.BooleanField(default=False)
-    max_storage_mb = models.IntegerField(default=500)  # Limite de armazenamento em MB
-    current_storage_kb = models.IntegerField(default=0)  # Armazenamento atual em KB
+    max_storage_mb = models.IntegerField(default=500)
+    current_storage_kb = models.IntegerField(default=0)
 
     class Meta:
         indexes = [

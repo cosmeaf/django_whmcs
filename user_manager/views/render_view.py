@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse
 from user_manager.middleware import get_subdomain, get_hostname
 from user_manager.views.error_view import custom_404_view
 import os
@@ -8,8 +8,9 @@ def render_project(request):
     hostname = get_hostname(request)
 
     # Verifique se é o domínio principal (sem subdomínio)
-    if hostname == 'projetodesenvolve.duckdns.org':
-        return render(request, 'index.html')
+    if hostname == 'smartjobs.duckdns.org':
+        return redirect('account_login')
+        # return render(request, 'index.html')
 
     # Diretório do projeto deve ser acessado através do link simbólico
     project_directory = os.path.join('/var/www/', subdomain)

@@ -23,10 +23,10 @@ if not os.path.exists(log_dir):
 SECRET_KEY = 'django-insecure-*)dp54ajoh*54+i68&0ql^!*l1)xn-@3-5l=_9d$66a4_-5okd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['projetodesenvolve.duckdns.org', '.projetodesenvolve.duckdns.org', 'legendariosminas.com', '89.117.32.251']
-BASE_URL = 'projetodesenvolve.duckdns.org'
+ALLOWED_HOSTS = ['smartjobs.duckdns.org', '74.208.11.4']
+BASE_URL = 'smartjobs.duckdns.org'
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 handler404 = 'user_manager.views.custom_404_view'
@@ -126,10 +126,23 @@ TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
+USE_L10N = True
+
 USE_TZ = True
 
-USE_I18N = True
+# Idioma padrão do projeto
+LANGUAGE_CODE = 'pt-br'
 
+# Idiomas disponíveis no projeto
+LANGUAGES = [
+    ('en', 'English'),
+    ('pt-br', 'Português Brasileiro'),
+]
+
+# Caminho global para os arquivos de tradução
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
