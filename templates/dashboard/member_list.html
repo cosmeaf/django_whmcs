@@ -1,0 +1,104 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<div class="container my-4">
+  <h1 class="h3 mb-4">Informações de Conta</h1>
+
+  {% if member.inactive == False %}
+  <!-- Seção principal dentro de um card maior -->
+  <div class="card bg-dark text-light mb-4">
+    <div class="card-body">
+      <!-- Detalhes da Conta -->
+      <div class="mb-4">
+        <h5 class="text-purple">Detalhes da Conta</h5>
+        <hr class="bg-light">
+        <p class="small"><strong>Usuário:</strong> {{ member.username }}</p>
+        <p class="small"><strong>Diretório Home:</strong> {{ member.home_directory }}</p>
+        <p class="small"><strong>Espaço Disponível:</strong> {{ member.max_storage_mb }} MB</p>
+        <p class="small"><strong>Senha:</strong> <span class="text-danger">{{ member.password }}</span></p>
+        <p class="small"><strong>Último Login:</strong>
+          {% if member.last_login %}{{ member.last_login|date:"d-m-Y H:i" }} {% else %}-{% endif %}
+        </p>
+      </div>
+
+      <!-- Divisória -->
+      <hr class="bg-light">
+
+      <!-- Acesso SFTP/FTP -->
+      <div class="mb-4">
+        <h5 class="text-purple">Acesso SFTP/FTP</h5>
+        <p class="small">Para acessar seu espaço de armazenamento via SFTP ou FTP, use as seguintes credenciais:
+        </p>
+        <ul class="small">
+          <li><strong>Host:</strong> projetodesenvolve.duckdns.org</li>
+          <li><strong>Usuário:</strong> {{ member.username }}</li>
+          <li><strong>Senha:</strong> {{ member.password }}</li>
+          <li><strong>Porta:</strong> 22 (SFTP) ou 21 (FTP)</li>
+        </ul>
+        <p class="small">Você pode usar um cliente FTP como <a href="https://filezilla-project.org/"
+            target="_blank">FileZilla</a> ou <a href="https://winscp.net/" target="_blank">WinSCP</a> para se
+          conectar.</p>
+      </div>
+
+      <!-- Divisória -->
+      <hr class="bg-light">
+
+      <!-- Acesso SSH -->
+      <div class="mb-4">
+        <h5 class="text-purple">Acesso SSH</h5>
+        <p class="small">Para acessar seu servidor via SSH, use as seguintes credenciais:</p>
+        <ul class="small">
+          <li><strong>Host:</strong> projetodesenvolve.duckdns.org</li>
+          <li><strong>Usuário:</strong> {{ member.username }}</li>
+          <li><strong>Senha:</strong> {{ member.password }}</li>
+          <li><strong>Porta:</strong> 22</li>
+        </ul>
+        <p class="small">Para se conectar via SSH, você pode usar um terminal no Linux/Mac ou um cliente SSH como
+          <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/" target="_blank">PuTTY</a> no Windows.
+        </p>
+        <p class="small">No terminal, execute o comando:</p>
+        <pre class="small"><code>ssh {{ member.username }}@projetodesenvolve.duckdns.org</code></pre>
+      </div>
+
+      <!-- Divisória -->
+      <hr class="bg-light">
+
+      <!-- Acesso via Console na Web -->
+      <div class="mb-4">
+        <h5 class="text-purple">Acesso via Console na Web</h5>
+        <p class="small">Você pode acessar seu ambiente de desenvolvimento diretamente pelo navegador usando
+          nosso console na web.</p>
+        <a href="#" class="btn btn-primary btn-sm">Abrir Console na Web</a>
+      </div>
+
+      <!-- Divisória -->
+      <hr class="bg-light">
+
+      <!-- Exclusão de Conta -->
+      <div class="mb-4">
+        <h5 class="text-purple">Excluir Conta</h5>
+        <p class="small text-danger">Atenção: A exclusão da conta é irreversível e resultará na perda de todos os
+          dados associados.</p>
+        <!-- Botão para abrir o modal de confirmação -->
+        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#excludeMemberModal">
+          Excluir Conta
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {% else %}
+  <!-- Seção caso a conta tenha sido excluída -->
+  <div class="alert alert-warning">
+    <h5 class="alert-heading">Conta Inativa</h5>
+    <p>Você não possui uma conta ativa no momento. Para acessar o cPanel, é necessário criar uma nova conta.</p>
+    <a href="#" class="btn btn-primary">Criar Nova Conta</a>
+  </div>
+  {% endif %}
+
+</div>
+
+<!-- Incluir o modal -->
+{% include 'modals/exclude_member.html' %}
+
+{% endblock %}
